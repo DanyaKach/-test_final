@@ -1,0 +1,61 @@
+name: Performance Tests (k6)
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 2 * * *'  # Run daily at 2 AM UTC
+
+jobs:
+  performance-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '10.0.x'
+    
+    - name: Build API
+      run: dotnet build WeatherStation.Api --configuration Release
+    
+    - name: Run API in background
+      run: |
+        dotnet run --project WeatherStation.Api --configuration Release -- --seed &
+        sleep 10
+      env:
+        ASPNETCORE_ENVIRONMENT: Development
+    
+    - name: Install k6
+      run: |
+        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+        echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+        sudo apt-get update
+        sudo apt-get install -y k6
+    
+    - name: Run high-frequency readings test
+      run: |
+        k6 run WeatherStation.PerformanceTests/k6/high_frequency_readings.js \
+          --vus 30 --duration 20s --out json=results-high-freq.json
+      env:
+        BASE_URL: http://localhost:5000
+      continue-on-error: true
+    
+    - name: Run average load test
+      run: |
+        k6 run WeatherStation.PerformanceTests/k6/average_load.js \
+          --vus 15 --duration 15s --out json=results-avg.json
+      env:
+        BASE_URL: http://localhost:5000
+      continue-on-error: true
+    
+    - name: Upload k6 results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: k6-results
+        path: results-*.json

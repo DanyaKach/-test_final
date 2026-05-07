@@ -1,0 +1,37 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '10.0.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Install code analyzers
+      run: |
+        dotnet tool install -g roslynator.commandline || dotnet tool update -g roslynator.commandline
+    
+    - name: Run static code analysis
+      run: roslynator analyze --verbosity quiet || true
+    
+    - name: Check code formatting
+      run: dotnet format --verify-no-changes --verbosity diagnostic
+      continue-on-error: true
+    
+    - name: Build with warnings as errors
+      run: dotnet build /p:TreatWarningsAsErrors=true
+      continue-on-error: true

@@ -1,0 +1,51 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.docstates
+
+# User-specific
+*.suo
+*.user
+*.userosscache
+*.sln.user
+
+# Test Results
+TestResults/
+*.trx
+coverage/
+coverage.cobertura.xml
+
+# Rider
+.idea/
+*.sln.iml
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+appsettings.Development.json
+appsettings.*.json
+
+# k6 results
+results-*.json
+
+# OS
+.DS_Store
+Thumbs.db
