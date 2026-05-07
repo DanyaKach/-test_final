@@ -121,3 +121,6 @@ C:\andriy\kn\-test_final\WeatherStation.Api\obj\Debug\net10.0\WeatherStation.Api
 C:\andriy\kn\-test_final\WeatherStation.Api\obj\Debug\net10.0\WeatherStation.Api.genruntimeconfig.cache
 C:\andriy\kn\-test_final\WeatherStation.Api\obj\Debug\net10.0\ref\WeatherStation.Api.dll
 C:\andriy\kn\-test_final\WeatherStation.Api\obj\Debug\net10.0\WeatherStation.Api.sourcelink.json
+C:\andriy\kn\-test_final\WeatherStation.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\andriy\kn\-test_final\WeatherStation.Api\bin\Debug\net10.0\AutoFixture.dll
+C:\andriy\kn\-test_final\WeatherStation.Api\bin\Debug\net10.0\Fare.dll

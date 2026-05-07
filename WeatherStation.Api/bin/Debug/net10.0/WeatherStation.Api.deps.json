@@ -8,12 +8,33 @@
     ".NETCoreApp,Version=v10.0": {
       "WeatherStation.Api/1.0.0": {
         "dependencies": {
+          "AutoFixture": "4.18.1",
           "Microsoft.AspNetCore.OpenApi": "10.0.7",
           "Microsoft.EntityFrameworkCore.Design": "10.0.7",
+          "Microsoft.EntityFrameworkCore.InMemory": "10.0.7",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.1"
         },
         "runtime": {
           "WeatherStation.Api.dll": {}
+        }
+      },
+      "AutoFixture/4.18.1": {
+        "dependencies": {
+          "Fare": "2.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoFixture.dll": {
+            "assemblyVersion": "4.18.0.0",
+            "fileVersion": "4.18.1.694"
+          }
+        }
+      },
+      "Fare/2.1.1": {
+        "runtime": {
+          "lib/netstandard1.1/Fare.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.1.0"
+          }
         }
       },
       "Humanizer.Core/2.14.1": {
@@ -353,6 +374,17 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/10.0.7": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "10.0.7"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "10.0.7.0",
+            "fileVersion": "10.0.726.21808"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/10.0.7": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.7"
@@ -504,6 +536,20 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AutoFixture/4.18.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BmWZDY4fkrYOyd5/CTBOeXbzsNwV8kI4kDi/Ty1Y5F+WDHBVKxzfWlBE4RSicvZ+EOi2XDaN5uwdrHsItLW6Kw==",
+      "path": "autofixture/4.18.1",
+      "hashPath": "autofixture.4.18.1.nupkg.sha512"
+    },
+    "Fare/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HaI8puqA66YU7/9cK4Sgbs1taUTP1Ssa4QT2PIzqJ7GvAbN1QgkjbRsjH+FSbMh1MJdvS0CIwQNLtFT+KF6KpA==",
+      "path": "fare/2.1.1",
+      "hashPath": "fare.2.1.1.nupkg.sha512"
+    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
@@ -580,6 +626,13 @@
       "sha512": "sha512-8UMWkJdfwN/tyEZS6zd0s55zE5zaG4owldh+E91vXitHmux3FTP6Hjhgk6RL9Sv+TdO4FMERQIT6VzBtRrb1AQ==",
       "path": "microsoft.entityframeworkcore.design/10.0.7",
       "hashPath": "microsoft.entityframeworkcore.design.10.0.7.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/10.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RAns8RTPymM9GsIdY5Y8wWdpdMEXputTl24+95WhYzqF4HhT0i+jFmNgDxBTy386vU9ruoUC5gcPAiuJr8SZxg==",
+      "path": "microsoft.entityframeworkcore.inmemory/10.0.7",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.10.0.7.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/10.0.7": {
       "type": "package",
